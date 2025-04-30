@@ -10,23 +10,14 @@ from models import Usuario, Vaga, Candidatura
 load_dotenv()
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
-app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
 
 # Inicializa banco e login
 db.init_app(app)
-login_manager = LoginManager(app)
-login_manager.login_view = "login"
-
-@login_manager.user_loader
-def load_user(user_id):
-    return Usuario.query.get(int(user_id))
 
 
 @app.route('/')
-def index():
-    vagas = Vaga.query.all()
-    return render_template('index.html', vagas=vagas)
+def index():    
+    return render_template('index.html')
 
 @app.route('/login')
 def login():
@@ -41,11 +32,6 @@ def logout():
     logout_user()
     flash("Logout efetuado com sucesso!", "info")
     return redirect(url_for('index'))
-
-@app.route('/vaga/<int:vaga_id>')
-def detalhes_vaga(vaga_id):
-    vaga = Vaga.query.get_or_404(vaga_id)
-    return render_template('detalhes_vaga.html', vaga=vaga)
 
 
 
