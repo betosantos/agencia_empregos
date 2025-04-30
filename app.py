@@ -11,7 +11,7 @@ def hello():
 
 
 @app.route('/teste')
-def hello():
+def teste():
     return 'Teste'
 
 
