@@ -10,6 +10,11 @@ def hello():
     return render_template('index.html')
 
 
+@app.route('/teste')
+def hello():
+    return 'Teste'
+
+
 
 
 if __name__ == '__main__':
