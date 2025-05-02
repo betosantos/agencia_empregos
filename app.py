@@ -22,12 +22,12 @@ def index():
 
 if __name__ == '__main__':
     with app.app_context():
-        db.drop_all()    # Apaga todas as tabelas
+        #db.drop_all()    # Apaga todas as tabelas
         db.create_all()
         print("Tabelas apagadas e recriadas com sucesso!")
     app.run(debug=True)
 else:
     with app.app_context():
-        db.drop_all()    # Apaga todas as tabelas
+        #db.drop_all()    # Apaga todas as tabelas
         db.create_all()
         print("Tabelas apagadas e recriadas com sucesso!")
