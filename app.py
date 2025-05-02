@@ -13,14 +13,14 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
 # Criação das tabelas no deploy
-with app.app_context():
-    db.drop_all()
-    db.create_all()
-    print('Tabelas criadas com sucesso!!')
+#with app.app_context():    
+#    db.create_all()
+#    print('Tabelas criadas com sucesso!!')
 
 @app.route('/')
 def index():    
     return render_template('index.html')
 
 
-
+if __name__ == '__main__':
+    app.run(debug=True)
