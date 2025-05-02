@@ -14,7 +14,9 @@ db.init_app(app)
 
 # Criação das tabelas no deploy
 with app.app_context():
+    db.drop_all()
     db.create_all()
+    print('Tabelas criadas')
 
 @app.route('/')
 def index():    
