@@ -12,7 +12,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
 
-
+# Criação das tabelas no deploy
+with app.app_context():
+    db.create_all()
 
 @app.route('/')
 def index():    
@@ -20,14 +22,3 @@ def index():
 
 
 
-if __name__ == '__main__':
-    with app.app_context():
-        #db.drop_all()    # Apaga todas as tabelas
-        db.create_all()
-        print("Tabelas apagadas e recriadas com sucesso!")
-    app.run(debug=True)
-else:
-    with app.app_context():
-        #db.drop_all()    # Apaga todas as tabelas
-        db.create_all()
-        print("Tabelas apagadas e recriadas com sucesso!")
