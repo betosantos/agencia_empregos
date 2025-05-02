@@ -16,7 +16,7 @@ db.init_app(app)
 with app.app_context():
     db.drop_all()
     db.create_all()
-    print('Tabelas criadas')
+    print('Tabelas criadas com sucesso!!')
 
 @app.route('/')
 def index():    
