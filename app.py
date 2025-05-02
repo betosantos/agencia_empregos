@@ -23,7 +23,7 @@ def index():
 
 
 @app.route('/form')
-def index():    
+def form():    
     return render_template('form.html')
 
 
