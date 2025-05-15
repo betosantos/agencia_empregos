@@ -1,5 +1,8 @@
 [build]
-  functions = "func"
+  functions = "func"  # O diretório onde suas funções do Netlify vão ficar
+  command = "pip install -r requirements.txt && python -m flask run"  # Comando de build
+  
+
 
 [[redirects]]
   from = "/*"
